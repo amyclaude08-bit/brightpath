@@ -1,0 +1,107 @@
+{
+  "contacts": [
+    {
+      "id": "C001",
+      "name": "James Cooper",
+      "type": "individual",
+      "email": "james.cooper@email.com",
+      "status": "active",
+      "vip": false,
+      "total_spend": 790,
+      "workshops_attended": 2,
+      "upcoming_bookings": ["Presentation Skills - 8 Apr 2026"],
+      "last_contact": "2026-02-14",
+      "tags": ["referrer", "coaching_interest"]
+    },
+    {
+      "id": "C002",
+      "name": "Sarah Miles",
+      "company": "Acme Logistics",
+      "type": "corporate_prospect",
+      "email": "s.miles@acmelogistics.co.uk",
+      "status": "warm_lead",
+      "vip": false,
+      "estimated_value": 5500,
+      "stage": "awaiting_budget_approval",
+      "last_contact": "2026-03-20",
+      "tags": ["annual_partner_candidate", "competitor_aware"]
+    },
+    {
+      "id": "C003",
+      "name": "Tom Nguyen",
+      "company": "Northstar Media",
+      "type": "corporate",
+      "email": "tom.nguyen@northstarmedia.co.uk",
+      "status": "active",
+      "vip": false,
+      "total_spend": 2960,
+      "outstanding_invoice": "INV-2026-047",
+      "outstanding_amount": 2960,
+      "last_contact": "2026-03-15",
+      "tags": ["slow_payer", "overdue_invoice"]
+    },
+    {
+      "id": "C004",
+      "name": "Linda Okafor",
+      "type": "individual",
+      "email": "linda.okafor@gmail.com",
+      "status": "at_risk",
+      "vip": false,
+      "total_spend": 495,
+      "complaint_count": 2,
+      "last_contact": "2026-02-10",
+      "tags": ["unhappy_customer", "priority_review_if_contacts"]
+    },
+    {
+      "id": "C005",
+      "name": "Dan Farrow",
+      "company": "Nexus Digital",
+      "type": "annual_partner",
+      "email": "dan.farrow@nexusdigital.com",
+      "status": "vip",
+      "vip": true,
+      "annual_value": 14400,
+      "partnership_since": "2022",
+      "last_contact": "2026-03-01",
+      "tags": ["vip", "annual_partner", "upsell_coaching"]
+    },
+    {
+      "id": "C006",
+      "name": "Rachel Drummond",
+      "company": "Stormfront Media",
+      "type": "corporate_prospect",
+      "email": "r.drummond@stormfrontmedia.com",
+      "status": "cold_lead",
+      "vip": false,
+      "estimated_value": 3800,
+      "stage": "proposal_sent_no_response",
+      "last_contact": "2026-02-20",
+      "tags": ["cold_lead", "re_engage"]
+    },
+    {
+      "id": "C007",
+      "name": "Greg Walsh",
+      "type": "individual",
+      "email": "greg.walsh@outlook.com",
+      "status": "refund_pending",
+      "vip": false,
+      "total_spend": 495,
+      "last_contact": "2026-03-22",
+      "tags": ["refund_requested"]
+    },
+    {
+      "id": "C008",
+      "name": "Fiona Marsh",
+      "company": "Hartley Legal",
+      "type": "annual_partner",
+      "email": "f.marsh@hartleylegal.co.uk",
+      "status": "vip",
+      "vip": true,
+      "annual_value": 12000,
+      "partnership_since": "2023",
+      "renewal_due": "2026-04-01",
+      "last_contact": "2026-03-01",
+      "tags": ["vip", "annual_partner", "renewal_due", "upsell_coaching"]
+    }
+  ]
+}
