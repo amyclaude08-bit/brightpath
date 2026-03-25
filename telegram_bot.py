@@ -21,6 +21,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
 async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
     chat_id = update.effective_chat.id
+    print("CHAT ID:", chat_id)
 
     # Optional access control
     if ALLOWED_CHAT_IDS and chat_id not in ALLOWED_CHAT_IDS:
