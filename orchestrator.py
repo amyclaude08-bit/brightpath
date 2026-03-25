@@ -413,6 +413,45 @@ def main():
         else:
             console.print("[dim]No input.[/dim]")
 
+def process_message_for_telegram(message: str) -> dict:
+    """Silent version of process_message() — returns result dict for Telegram."""
+    memory = load_memory()
+
+    triage = run_triage(message, memory)
+    if "error" in triage:
+        return {"summary": f"❌ Triage error: {triage.get('error')}", "action": None}
+
+    category  = triage.get("category", "customer_service")
+    next_agent = triage.get("next_agent", "customer_service_agent")
+
+    if category in ("sales", "complex") and next_agent == "sales_agent":
+        agent_result = run_sales_agent(message, triage, memory)
+    elif category == "admin":
+        agent_result = {"summary": "Admin request — handled by briefing agent."}
+    else:
+        agent_result = run_customer_service_agent(message, triage, memory)
+
+    if "error" in agent_result:
+        return {"summary": f"❌ Agent error: {agent_result.get('error')}", "action": None}
+
+    briefing = run_manager_briefing(message, triage, agent_result)
+    log_event(message, triage, agent_result, briefing)
+
+    open_task = agent_result.get("open_task") or agent_result.get("crm_update", {}).get("next_action")
+    if open_task:
+        add_task(open_task, triage.get("urgency", "medium"), "telegram")
+
+    if category == "sales" and "crm_update" in agent_result:
+        cu = agent_result["crm_update"]
+        contact = triage.get("customer_name") or triage.get("company_name") or "unknown"
+        log_crm(contact, cu.get("status", "updated"), cu.get("notes", ""))
+
+    return {
+        "summary": briefing.get("telegram_summary", "No summary."),
+        "action":  briefing.get("human_action_required") if briefing.get("needs_human_action") else None,
+        "value":   briefing.get("value_flag"),
+        "risk":    briefing.get("risk_flag"),
+    }
 
 if __name__ == "__main__":
     main()
