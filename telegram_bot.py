@@ -12,7 +12,7 @@ from orchestrator import process_message_for_telegram, init_db
 
 logging.basicConfig(level=logging.INFO)
 
-ALLOWED_CHAT_IDS = [111]  # Optional: add your Telegram chat ID here to restrict access
+ALLOWED_CHAT_IDS = [8712569350]  # Optional: add your Telegram chat ID here to restrict access
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text(
